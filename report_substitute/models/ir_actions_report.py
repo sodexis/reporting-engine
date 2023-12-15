@@ -52,16 +52,12 @@ class IrActionReport(models.Model):
     def _render(self, report_ref, res_ids, data=None):
         report = self._get_report(report_ref)
         substitution_report = report.get_substitution_report(res_ids)
-        return super(IrActionReport, self)._render(
-            substitution_report.report_name, res_ids, data=data
-        )
+        return super()._render(substitution_report.report_name, res_ids, data=data)
 
     def _render_qweb_pdf(self, report_ref, res_ids=None, data=None):
         report = self._get_report(report_ref)
         substitution_report = report.get_substitution_report(res_ids)
-        return super(IrActionReport, self)._render_qweb_pdf(
-            substitution_report, res_ids=res_ids, data=data
-        )
+        return super()._render_qweb_pdf(substitution_report, res_ids=res_ids, data=data)
 
     def report_action(self, docids, data=None, config=True):
         if docids:
